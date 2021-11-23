@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
         <activity
+            android:name=".hostNav"
+            android:exported="false" />
+        <activity
             android:name=".Unkown"
             android:exported="false" />
         <activity

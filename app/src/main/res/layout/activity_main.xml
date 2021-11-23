@@ -13,7 +13,6 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
         android:gravity="center"
         android:text="Sign in"
         android:textColor="@color/black"
@@ -25,9 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signin"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#DFDFDF"
@@ -42,8 +42,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#DFDFDF"
@@ -54,41 +57,41 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginbtn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:layout_below="@+id/password"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/design_default_color_secondary"
-        android:text="LOGIN" />
+        android:layout_alignParentBottom="false"
+        android:layout_marginTop="6dp"
+        android:gravity="center">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/signupbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/password"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="20dp"
-        android:layout_toRightOf="@+id/loginbtn"
-        android:backgroundTint="@color/design_default_color_secondary"
-        android:text="LOGIN" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginbtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/design_default_color_secondary"
+            android:text="LOGIN" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signupbtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/design_default_color_secondary"
+            android:text="signup" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/forgotpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginbtn"
+        android:layout_below="@id/buttons"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="Forgot password?"
@@ -99,8 +102,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/forgotpass"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:gravity="center">
 
 
@@ -108,12 +112,14 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
+            android:id="@+id/google"
             android:src="@drawable/google" />
 
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
+            android:id="@+id/fb"
             android:src="@drawable/fb" />
 
 
