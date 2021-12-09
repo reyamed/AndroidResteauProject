@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.login.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.login.R;
 import com.google.android.material.button.MaterialButton;
 
 public class SignUp extends AppCompatActivity {

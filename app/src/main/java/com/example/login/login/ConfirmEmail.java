@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.login.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.login.R;
+import com.example.login.navbar.HomePageA;
 import com.google.android.material.button.MaterialButton;
 
 public class ConfirmEmail extends AppCompatActivity {
@@ -19,7 +21,7 @@ public class ConfirmEmail extends AppCompatActivity {
         confirm2btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ConfirmEmail.this, HomePage.class);
+                Intent intent = new Intent(ConfirmEmail.this, HomePageA.class);
                 startActivity(intent);
             }
         });

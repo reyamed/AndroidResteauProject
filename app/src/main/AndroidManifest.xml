@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
         <activity
-            android:name=".hostNav"
-            android:exported="false" />
+            android:name=".navbar.hostNav"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Unkown"
             android:exported="false" />
@@ -19,31 +20,19 @@
             android:name=".RestauProfil"
             android:exported="false" />
         <activity
-            android:name=".RechercheRestau"
-            android:exported="false" />
-        <activity
-            android:name=".Profil"
-            android:exported="false" />
-        <activity
             android:name=".Paiement"
             android:exported="false" />
         <activity
-            android:name=".map"
+            android:name=".login.FbSignUp"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".login.ConfirmEmail"
             android:exported="false" />
         <activity
-            android:name=".FbSignUp"
+            android:name=".login.SignUp"
             android:exported="false" />
         <activity
-            android:name=".ConfirmEmail"
-            android:exported="false" />
-        <activity
-            android:name=".SignUp"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".login.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

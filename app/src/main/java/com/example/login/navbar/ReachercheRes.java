@@ -1,12 +1,18 @@
-package com.example.login;
+package com.example.login.navbar;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.login.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +29,9 @@ public class ReachercheRes extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    public RecyclerView recyclerViewP;
+    public RestaurantAdapter restaurantAdapter;
+    public ArrayList<RestaurantModel> restaurants;
 
     public ReachercheRes() {
         // Required empty public constructor
@@ -59,6 +68,25 @@ public class ReachercheRes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reacherche_res, container, false);
+        View view =  inflater.inflate(R.layout.fragment_reacherche_res, container, false);
+        recyclerViewP = view.findViewById(R.id.rvRestaurants);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewP.setLayoutManager(manager);
+        restaurants = new ArrayList<>();
+
+        RestaurantModel restaurant1 = new RestaurantModel(R.drawable.r1,"Frerot","Bouvlavrd m6 , 106 , Oujda" , "★★★☆☆");
+        RestaurantModel restaurant2 = new RestaurantModel(R.drawable.r2,"Bigup","Bouvlavrd lala salma , 56 , Oujda" , "★★★☆☆");
+        RestaurantModel restaurant3 = new RestaurantModel(R.drawable.r3,"EL FIl","Bouvlavrd tarik ibnou ziad , 556 , Oujda" , "★★★☆☆");
+        RestaurantModel restaurant4 = new RestaurantModel(R.drawable.r4,"Mistral","Bouvlavrd HASSAN II , 45 , Oujda" , "★★★☆☆");
+
+        restaurants.add(restaurant1);
+        restaurants.add(restaurant2);
+        restaurants.add(restaurant3);
+        restaurants.add(restaurant4);
+
+        recyclerViewP.setAdapter(new RestaurantAdapter(getContext(), restaurants));
+        return view;
+
     }
 }

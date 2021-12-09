@@ -1,7 +1,9 @@
-package com.example.login;
+package com.example.login.login;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login.R;
+import com.example.login.navbar.hostNav;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+                if (username.getText().toString().equals("11") && password.getText().toString().equals("11")) {
                     //correct
                     Intent intent = new Intent(MainActivity.this, hostNav.class);
                     startActivity(intent);
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } else
                     //incorrect
-                    Toast.makeText(MainActivity.this, "LOGIN FAILED !!!", Toast.LENGTH_SHORT).show();
+                    alert("Username or password incorrect");
 
             }
         });
@@ -66,5 +70,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    private void alert(String message) {
+        AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+        dlg.setTitle("Message");
+        dlg.setMessage(message);
+        dlg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dlg.create();
+        dlg.show();
     }
 }

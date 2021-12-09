@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.login.navbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -8,6 +8,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
+import com.example.login.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class hostNav extends AppCompatActivity {
