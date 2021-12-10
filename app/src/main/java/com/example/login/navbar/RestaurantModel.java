@@ -1,30 +1,40 @@
 package com.example.login.navbar;
 
 public class RestaurantModel {
-    private int mRestaurantPic;
-    private String mRestaurantName;
-    private String mLocalisation;
-    private String mRate;
+    private String Logo;
+    private String Nom;
+    private String Localisation;
+    private String Rate;
+    private String Description ;
 
-    public RestaurantModel(int mRestaurantPic , String mRestaurantName, String mLocalisation, String mRate) {
+
+
+
+    /* public RestaurantModel(int mRestaurantPic , String Nom, String Localisation, String Rate) {
         this.mRestaurantPic = mRestaurantPic;
-        this.mRestaurantName = mRestaurantName;
-        this.mLocalisation = mLocalisation;
-        this.mRate = mRate;
+        this.Nom = Nom;
+        this.Localisation = Localisation;
+        this.Rate = Rate;
+    }
+    public RestaurantModel() {
+
+    } */
+
+    public  String getLogo() { return Logo;}
+
+    public String getNom() {
+        return Nom;
     }
 
-    public int getmRestaurantPic() {
-        return mRestaurantPic;}
-
-    public String getmRestaurantName() {
-        return mRestaurantName;
+    public String getLocalisation() {
+        return Localisation;
     }
 
-    public String getmLocalisation() {
-        return mLocalisation;
+    public String getRate() {
+        return Rate;
     }
 
-    public String getmRate() {
-        return mRate;
+    public String getDescription() {
+        return Description;
     }
 }

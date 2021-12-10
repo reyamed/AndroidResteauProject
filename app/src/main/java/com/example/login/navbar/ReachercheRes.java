@@ -2,15 +2,28 @@ package com.example.login.navbar;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.example.login.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
+
+
 
 import java.util.ArrayList;
 
@@ -32,6 +45,8 @@ public class ReachercheRes extends Fragment {
     public RecyclerView recyclerViewP;
     public RestaurantAdapter restaurantAdapter;
     public ArrayList<RestaurantModel> restaurants;
+    DatabaseReference database ;
+
 
     public ReachercheRes() {
         // Required empty public constructor
@@ -67,26 +82,83 @@ public class ReachercheRes extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_reacherche_res, container, false);
-        recyclerViewP = view.findViewById(R.id.rvRestaurants);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerViewP.setLayoutManager(manager);
+        recyclerViewP=view.findViewById(R.id.rvRestaurants);
+        database = FirebaseDatabase.getInstance().getReference("Restaurants");
+        recyclerViewP.setHasFixedSize(true);
+        recyclerViewP.setLayoutManager(new LinearLayoutManager(getContext()));
+
         restaurants = new ArrayList<>();
+        restaurantAdapter = new RestaurantAdapter(getContext(),restaurants );
+        recyclerViewP.setAdapter(restaurantAdapter);
 
-        RestaurantModel restaurant1 = new RestaurantModel(R.drawable.r1,"Frerot","Bouvlavrd m6 , 106 , Oujda" , "★★★☆☆");
-        RestaurantModel restaurant2 = new RestaurantModel(R.drawable.r2,"Bigup","Bouvlavrd lala salma , 56 , Oujda" , "★★★☆☆");
-        RestaurantModel restaurant3 = new RestaurantModel(R.drawable.r3,"EL FIl","Bouvlavrd tarik ibnou ziad , 556 , Oujda" , "★★★☆☆");
-        RestaurantModel restaurant4 = new RestaurantModel(R.drawable.r4,"Mistral","Bouvlavrd HASSAN II , 45 , Oujda" , "★★★☆☆");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                   RestaurantModel restaurant = dataSnapshot.getValue(RestaurantModel.class) ;
+                   restaurants.add(restaurant);
+                }
+                restaurantAdapter.notifyDataSetChanged();
+            }
 
-        restaurants.add(restaurant1);
-        restaurants.add(restaurant2);
-        restaurants.add(restaurant3);
-        restaurants.add(restaurant4);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        recyclerViewP.setAdapter(new RestaurantAdapter(getContext(), restaurants));
+            }
+        });
         return view;
-
     }
+
+   /* @Override
+    public void onStart() {
+        super.onStart();
+        restaurantAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        restaurantAdapter.stopListening();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.searchmenu,menu);
+
+        MenuItem item=menu.findItem(R.id.search);
+
+        SearchView searchView=(SearchView)item.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                processsearch(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                processsearch(s);
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void processsearch(String s)
+    {
+        FirebaseRecyclerOptions<model> options =
+                new FirebaseRecyclerOptions.Builder<model>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("course").startAt(s).endAt(s+"\uf8ff"), model.class)
+                        .build();
+
+        adapter=new myadapter(options);
+        adapter.startListening();
+        recview.setAdapter(adapter);
+
+    }*/
+
 }

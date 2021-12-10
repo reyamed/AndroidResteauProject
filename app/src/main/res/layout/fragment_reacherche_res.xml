@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="top">
 
 
     <LinearLayout
@@ -14,38 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
-        <SearchView
-            android:id="@+id/rechercheRestau"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginVertical="15dp"
-            android:layout_marginHorizontal="12dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:hint="Rechercher un restaurant "
-            android:textSize="14sp" />
-
-
-
-
-
-
-    </LinearLayout>
+        android:gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRestaurants"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="587dp"
         android:scrollbars="vertical"
 
         />
-
 
 
 </LinearLayout>

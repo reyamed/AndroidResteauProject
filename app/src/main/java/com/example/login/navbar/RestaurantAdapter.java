@@ -4,22 +4,33 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import com.example.login.R;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
+
+    private Context context;
+    private List<RestaurantModel> mRestaurants;
+    public RestaurantAdapter(Context c, List<RestaurantModel> postist){
+        this.context = c;
+        this.mRestaurants = postist;
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        public ImageView imageViewRestaurant ;
+        //public ImageView imageViewRestaurant ;
+        CircleImageView img;
         public TextView TextViewRestaurantName;
         public TextView textViewLocalisation;
         public TextView textViewRate;
@@ -32,15 +43,11 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             TextViewRestaurantName = (TextView) itemView.findViewById(R.id.restaurantName);
             textViewLocalisation= (TextView) itemView.findViewById(R.id.localisation);
             textViewRate= (TextView) itemView.findViewById(R.id.rate);
-            imageViewRestaurant = itemView.findViewById(R.id.restaurantPic);;
+            img=(CircleImageView)itemView.findViewById(R.id.restaurantPic);
+            //imageViewRestaurant = itemView.findViewById(R.id.restaurantPic);;
         }
     }
-    private Context context;
-    private List<RestaurantModel> mRestaurants;
-    public RestaurantAdapter(Context c, List<RestaurantModel> postist){
-        this.context = c;
-        this.mRestaurants = postist;
-    }
+
 
     @NonNull
     @Override
@@ -57,18 +64,20 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
         // Set item views based on your views and data model
         TextView textViewRestaurantName = holder.TextViewRestaurantName;
-        textViewRestaurantName.setText(restaurant.getmRestaurantName());
+        textViewRestaurantName.setText(restaurant.getNom());
 
         TextView textViewMLocalisation = holder.textViewLocalisation;
-        textViewMLocalisation.setText(restaurant.getmLocalisation());
+        textViewMLocalisation.setText(restaurant.getLocalisation());
 
         TextView textViewMRate = holder.textViewRate;
-        textViewMRate.setText(restaurant.getmRate());
+        textViewMRate.setText(restaurant.getRate());
 
+
+        Glide.with(holder.img.getContext()).load(restaurant.getLogo()).into(holder.img);
         /*ImageView ImageViewRestaurant = holder.imageViewRestaurant;
         ImageViewRestaurant.setText(restaurant.getmRestaurantPic());
 */
-        holder.imageViewRestaurant.setImageResource(restaurant.getmRestaurantPic());
+        //holder.imageViewRestaurant.setImageResource(restaurant.getmRestaurantPic());
     }
 
     @Override

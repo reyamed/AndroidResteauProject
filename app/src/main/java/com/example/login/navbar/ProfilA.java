@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.login.R;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class ProfilA extends Fragment {
     public RecyclerView recyclerViewP;
     public RestaurantAdapter restaurantAdapter;
     public ArrayList<RestaurantModel> restaurants;
+    DatabaseReference database ;
 
     public ProfilA() {
         // Required empty public constructor
@@ -51,19 +53,21 @@ public class ProfilA extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+// Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil_a, container, false);
         recyclerViewP = view.findViewById(R.id.rvOrders);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewP.setLayoutManager(manager);
         restaurants = new ArrayList<>();
-
+/*
         RestaurantModel restaurant1 = new RestaurantModel(R.drawable.r1,"Frerot","Bouvlavrd m6 , 106 , Oujda" , "★★★☆☆");
         RestaurantModel restaurant2 = new RestaurantModel(R.drawable.r2,"Bigup","Bouvlavrd lala salma , 56 , Oujda" , "★★★☆☆");
         RestaurantModel restaurant3 = new RestaurantModel(R.drawable.r3,"EL FIl","Bouvlavrd tarik ibnou ziad , 556 , Oujda" , "★★★☆☆");
@@ -74,7 +78,7 @@ public class ProfilA extends Fragment {
         restaurants.add(restaurant3);
         restaurants.add(restaurant4);
 
-        recyclerViewP.setAdapter(new RestaurantAdapter(getContext(), restaurants));
+        recyclerViewP.setAdapter(new RestaurantAdapter(getContext(), restaurants));*/
         return view;
     }
 }

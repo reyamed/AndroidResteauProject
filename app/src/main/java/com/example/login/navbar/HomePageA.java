@@ -73,7 +73,7 @@ public class HomePageA extends Fragment {
         recyclerView.setLayoutManager(manager);
         restaurants = new ArrayList<>();
 
-         RestaurantModel restaurant1 = new RestaurantModel(R.drawable.r1,"Frerot","Bouvlavrd m6 , 106 , Oujda" , "★★★☆☆");
+         /*RestaurantModel restaurant1 = new RestaurantModel(R.drawable.r1,"Frerot","Bouvlavrd m6 , 106 , Oujda" , "★★★☆☆");
          RestaurantModel restaurant2 = new RestaurantModel(R.drawable.r2,"Bigup","Bouvlavrd lala salma , 56 , Oujda" , "★★★☆☆");
          RestaurantModel restaurant3 = new RestaurantModel(R.drawable.r3,"EL FIl","Bouvlavrd tarik ibnou ziad , 556 , Oujda" , "★★★☆☆");
          RestaurantModel restaurant4 = new RestaurantModel(R.drawable.r4,"Mistral","Bouvlavrd HASSAN II , 45 , Oujda" , "★★★☆☆");
@@ -83,7 +83,7 @@ public class HomePageA extends Fragment {
         restaurants.add(restaurant3);
         restaurants.add(restaurant4);
 
-        recyclerView.setAdapter(new RestaurantAdapter(getContext(), restaurants));
+        recyclerView.setAdapter(new RestaurantAdapter(getContext(), restaurants));*/
         return view;
     }
 }
