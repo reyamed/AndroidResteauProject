@@ -18,12 +18,14 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
+    private final RecyclerViewInterface recyclerViewInterface ;
 
     private Context context;
     private List<RestaurantModel> mRestaurants;
-    public RestaurantAdapter(Context c, List<RestaurantModel> postist){
+    public RestaurantAdapter(Context c, List<RestaurantModel> postist,RecyclerViewInterface recyclerViewInterface ){
         this.context = c;
         this.mRestaurants = postist;
+        this.recyclerViewInterface=recyclerViewInterface;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -38,13 +40,27 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView  ,RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             TextViewRestaurantName = (TextView) itemView.findViewById(R.id.restaurantName);
             textViewLocalisation= (TextView) itemView.findViewById(R.id.localisation);
             textViewRate= (TextView) itemView.findViewById(R.id.rate);
             img=(CircleImageView)itemView.findViewById(R.id.restaurantPic);
             //imageViewRestaurant = itemView.findViewById(R.id.restaurantPic);;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(recyclerViewInterface != null){
+                        int pos = getAdapterPosition() ;
+                        if(pos != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+
+                    }
+                }
+            });
+
         }
     }
 
@@ -54,7 +70,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     public RestaurantAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_restau, parent, false);
 
-        return new ViewHolder(v);
+        return new ViewHolder(v, recyclerViewInterface);
     }
 
     @Override
@@ -85,3 +101,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         return mRestaurants.size();
     }
 }
+
+
+

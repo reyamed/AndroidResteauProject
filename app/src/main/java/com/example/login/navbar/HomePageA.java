@@ -63,8 +63,8 @@ public class HomePageA extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        restaurantAdapter = new RestaurantAdapter(getContext(), restaurants);
+/* RECYCLERVIEW MIS EN COMMENTAIRE
+        restaurantAdapter = new RestaurantAdapter(getContext(), restaurants, this);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_page_a, container, false);
         recyclerView = view.findViewById(R.id.recyclerViewP);
@@ -73,7 +73,7 @@ public class HomePageA extends Fragment {
         recyclerView.setLayoutManager(manager);
         restaurants = new ArrayList<>();
 
-         /*RestaurantModel restaurant1 = new RestaurantModel(R.drawable.r1,"Frerot","Bouvlavrd m6 , 106 , Oujda" , "★★★☆☆");
+   */      /*RestaurantModel restaurant1 = new RestaurantModel(R.drawable.r1,"Frerot","Bouvlavrd m6 , 106 , Oujda" , "★★★☆☆");
          RestaurantModel restaurant2 = new RestaurantModel(R.drawable.r2,"Bigup","Bouvlavrd lala salma , 56 , Oujda" , "★★★☆☆");
          RestaurantModel restaurant3 = new RestaurantModel(R.drawable.r3,"EL FIl","Bouvlavrd tarik ibnou ziad , 556 , Oujda" , "★★★☆☆");
          RestaurantModel restaurant4 = new RestaurantModel(R.drawable.r4,"Mistral","Bouvlavrd HASSAN II , 45 , Oujda" , "★★★☆☆");
@@ -84,6 +84,7 @@ public class HomePageA extends Fragment {
         restaurants.add(restaurant4);
 
         recyclerView.setAdapter(new RestaurantAdapter(getContext(), restaurants));*/
+        View view = inflater.inflate(R.layout.fragment_home_page_a, container, false);
         return view;
     }
 }

@@ -22,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="129dp"
         android:layout_below="@id/imageView"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="7dp" />
+
     <TextView
         android:id="@+id/catext"
         android:layout_width="match_parent"

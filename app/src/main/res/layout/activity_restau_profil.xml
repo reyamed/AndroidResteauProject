@@ -1,102 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RestauProfil">
+    tools:context=".RestauProfil"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="75dp"
+        android:layout_marginHorizontal="20dp"
+        >
+
+        <ImageButton
+            android:id="@+id/imageRestaurant"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/r1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                 <TextView
+                    android:id="@+id/nameRestaurant"
+                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:text="RestauName"
+                     android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:id="@+id/ratingRestaurant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:textSize="18dp"
+                    android:text="★★★☆☆"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+            <TextView
+                android:id="@+id/localisationRestaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="Localisation BLA BLA BLA"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="319dp"
-        android:layout_marginBottom="599dp"
-        android:text="Notes"
-        android:textAlignment="viewStart"
-        android:textSize="16sp" />
+        android:text="Menu  : "
+        android:textSize="25dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="5dp"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="231dp"
-        android:layout_marginBottom="658dp"
-        android:text="Nom du restaurant"
-        android:textAlignment="viewStart"
-        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="274dp"
-        android:layout_marginBottom="629dp"
-        android:text="Cordonnées"
-        android:textAlignment="viewStart"
-        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="297dp"
-        android:layout_marginBottom="512dp"
-        android:text="Menu"
-        android:textAlignment="viewStart"
-        android:textSize="24sp" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="108dp"
-        android:layout_height="113dp"
-        android:layout_above="@+id/imageButton2"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="58dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toStartOf="@+id/imageButton3"
-        tools:src="@tools:sample/avatars" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="108dp"
-        android:layout_height="113dp"
-        android:layout_above="@+id/imageButton4"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="12dp"
-        tools:src="@tools:sample/avatars" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="108dp"
-        android:layout_height="113dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="247dp"
-        tools:src="@tools:sample/avatars" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="108dp"
-        android:layout_height="113dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="58dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="249dp"
-        android:layout_toStartOf="@+id/imageButton4"
-        tools:src="@tools:sample/avatars" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlats"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:scrollbars="vertical"
+        android:layout_marginHorizontal="19dp"
+        android:layout_marginTop="10dp"
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
@@ -106,4 +97,4 @@
         android:layout_marginBottom="0dp"
         app:menu="@menu/bottom_va" />
 
-</RelativeLayout>
+</LinearLayout>

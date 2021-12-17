@@ -1,5 +1,6 @@
 package com.example.login.navbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.example.login.R;
+import com.example.login.RestauProfil;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,8 +34,7 @@ import java.util.ArrayList;
  * Use the {@link ReachercheRes#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ReachercheRes extends Fragment {
-
+public class ReachercheRes extends Fragment implements RecyclerViewInterface {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -89,7 +90,7 @@ public class ReachercheRes extends Fragment {
         recyclerViewP.setLayoutManager(new LinearLayoutManager(getContext()));
 
         restaurants = new ArrayList<>();
-        restaurantAdapter = new RestaurantAdapter(getContext(),restaurants );
+        restaurantAdapter = new RestaurantAdapter(getContext(),restaurants ,this);
         recyclerViewP.setAdapter(restaurantAdapter);
 
         database.addValueEventListener(new ValueEventListener() {
@@ -110,55 +111,11 @@ public class ReachercheRes extends Fragment {
         return view;
     }
 
-   /* @Override
-    public void onStart() {
-        super.onStart();
-        restaurantAdapter.startListening();
-    }
-
     @Override
-    public void onStop() {
-        super.onStop();
-        restaurantAdapter.stopListening();
+    public void onItemClick(int position) {
+        Intent i = new Intent(getContext(), RestauProfil.class);
+        i.putExtra("restaurantId",position+1);
+        startActivity(i);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.searchmenu,menu);
-
-        MenuItem item=menu.findItem(R.id.search);
-
-        SearchView searchView=(SearchView)item.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                processsearch(s);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                processsearch(s);
-                return false;
-            }
-        });
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    private void processsearch(String s)
-    {
-        FirebaseRecyclerOptions<model> options =
-                new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("course").startAt(s).endAt(s+"\uf8ff"), model.class)
-                        .build();
-
-        adapter=new myadapter(options);
-        adapter.startListening();
-        recview.setAdapter(adapter);
-
-    }*/
 
 }

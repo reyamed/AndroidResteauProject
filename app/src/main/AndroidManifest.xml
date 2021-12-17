@@ -14,7 +14,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustPan"/>
         <activity
-            android:name=".Unkown"
+            android:name=".PlatProfil"
             android:exported="false" />
         <activity
             android:name=".RestauProfil"
