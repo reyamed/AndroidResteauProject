@@ -6,7 +6,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class PlatProfil extends AppCompatActivity {
 TextView textView1,textView2,textView3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +33,8 @@ TextView textView1,textView2,textView3;
         int PlatId = getIntent().getIntExtra("platId", 666);
         String platId = String.valueOf(PlatId);
         //String restauId = String.valueOf(RestauId) ;
-
+        Button commander ;
+        commander = (Button)findViewById(R.id.commanderBtn);
         DatabaseReference database;
 
         textView1 = findViewById(R.id.platNom);
@@ -54,6 +59,17 @@ TextView textView1,textView2,textView3;
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+
+        commander.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PlatProfil.this, Paiement.class);
+                i.putExtra("plat_name", platId) ;
+                i.putExtra("restaurant_id",restauId);
+                startActivity(i);
             }
         });
 
