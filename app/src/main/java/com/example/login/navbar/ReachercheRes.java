@@ -8,11 +8,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.SearchView;
 
 import com.example.login.R;
@@ -47,6 +50,7 @@ public class ReachercheRes extends Fragment implements RecyclerViewInterface {
     public RestaurantAdapter restaurantAdapter;
     public ArrayList<RestaurantModel> restaurants;
     DatabaseReference database ;
+    EditText search ;
 
 
     public ReachercheRes() {
@@ -88,17 +92,17 @@ public class ReachercheRes extends Fragment implements RecyclerViewInterface {
         database = FirebaseDatabase.getInstance().getReference("Restaurants");
         recyclerViewP.setHasFixedSize(true);
         recyclerViewP.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        search= view.findViewById(R.id.searchText);
         restaurants = new ArrayList<>();
         restaurantAdapter = new RestaurantAdapter(getContext(),restaurants ,this);
         recyclerViewP.setAdapter(restaurantAdapter);
-
+        search.setVisibility(View.VISIBLE);
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                   RestaurantModel restaurant = dataSnapshot.getValue(RestaurantModel.class) ;
-                   restaurants.add(restaurant);
+                    RestaurantModel restaurant = dataSnapshot.getValue(RestaurantModel.class) ;
+                    restaurants.add(restaurant);
                 }
                 restaurantAdapter.notifyDataSetChanged();
             }
@@ -108,7 +112,33 @@ public class ReachercheRes extends Fragment implements RecyclerViewInterface {
 
             }
         });
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+              filter(s.toString());
+            }
+        });
+
         return view;
+    }
+    public void filter(String text){
+        ArrayList<RestaurantModel> filterList = new ArrayList<>();
+        for(RestaurantModel item : restaurants){
+            if(item.getNom().toLowerCase().contains(text.toLowerCase())){
+                filterList.add(item);
+            }
+        }
+        restaurantAdapter.FilteredList(filterList) ;
     }
 
     @Override

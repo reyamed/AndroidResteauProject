@@ -7,12 +7,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
 import com.example.login.R;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -26,6 +29,16 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         this.context = c;
         this.mRestaurants = postist;
         this.recyclerViewInterface=recyclerViewInterface;
+    }
+
+    public RestaurantAdapter(FirebaseRecyclerOptions<RestaurantModel> options, RecyclerViewInterface recyclerViewInterface) {
+
+        this.recyclerViewInterface = recyclerViewInterface;
+    }
+
+    public void FilteredList(ArrayList<RestaurantModel> filterList) {
+        mRestaurants =filterList ;
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -101,6 +114,5 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         return mRestaurants.size();
     }
 }
-
 
 

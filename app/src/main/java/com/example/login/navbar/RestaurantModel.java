@@ -8,17 +8,16 @@ public class RestaurantModel {
     private String Description ;
 
 
-
-
-    /* public RestaurantModel(int mRestaurantPic , String Nom, String Localisation, String Rate) {
-        this.mRestaurantPic = mRestaurantPic;
-        this.Nom = Nom;
-        this.Localisation = Localisation;
-        this.Rate = Rate;
+    public RestaurantModel(String logo, String nom, String localisation, String rate) {
+        Logo = logo;
+        Nom = nom;
+        Localisation = localisation;
+        Rate = rate;
     }
+
     public RestaurantModel() {
 
-    } */
+    }
 
     public  String getLogo() { return Logo;}
 
