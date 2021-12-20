@@ -136,6 +136,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
                     app:boxStrokeWidthFocused="2dp"

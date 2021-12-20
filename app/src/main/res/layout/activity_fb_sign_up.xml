@@ -17,7 +17,8 @@
         android:gravity="center"
         android:text="Please Sign up with your FB account"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:fontFamily="@font/allerta"
+        android:textSize="26dp"
         android:textStyle="bold" />
 
   <!--  <EditText

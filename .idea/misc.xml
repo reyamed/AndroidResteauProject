@@ -55,6 +55,31 @@
         <entry key="..\:/Users/hp/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/item_restau.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/hp/Documents/GitHub/AndroidResteauProject/app/src/main/res/menu/search.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/hp/Documents/GitHub/AndroidResteauProject/app/src/main/res/menu/searchmenu.xml" value="0.1" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/drawable-v24/button_bg.xml" value="0.25625" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/drawable-v24/custom_email_icon.xml" value="0.25625" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/drawable-v24/custom_lock_icon.xml" value="0.25625" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/drawable-v24/ic_baseline_email_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/drawable/circle.xml" value="0.25625" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/drawable/custom_card_icon.xml" value="0.2703125" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/drawable/custom_img.xml" value="0.2703125" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/drawable/ic_baseline_credit_card_24_focused.xml" value="0.2703125" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_confirm_email.xml" value="0.14266304347826086" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_fb_sign_up.xml" value="0.264" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_forgot_password.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_host_nav.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_new_password.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_paiement.xml" value="0.264" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_plat.xml" value="0.25" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_restau_profil.xml" value="0.14266304347826086" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_sign_up.xml" value="0.14266304347826086" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/activity_verify_forgot_pass.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/fragment_home_page_a.xml" value="0.14266304347826086" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/fragment_map_a.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/fragment_profil_a.xml" value="0.264" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/fragment_reacherche_res.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/item_plat.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/lenovo/Documents/GitHub/AndroidResteauProject/app/src/main/res/layout/item_restau.xml" value="0.24010416666666667" />
       </map>
     </option>
   </component>
