@@ -11,22 +11,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.login.R;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class NewPassword extends AppCompatActivity {
     Button submit;
-    EditText password;
-    EditText confpass;
+    TextInputLayout password;
+    TextInputLayout confpass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_password);
         submit = (Button) findViewById(R.id.sendpass);
-        password = (EditText) findViewById(R.id.confirmpass);
-        confpass = (EditText) findViewById(R.id.confirmnewpass);
-        String passtext = password.getText().toString();
-        String confpasstext = confpass.getText().toString();
+        password = (TextInputLayout) findViewById(R.id.confirmpass);
+        confpass = (TextInputLayout) findViewById(R.id.confirmnewpass);
+        String passtext = password.getEditText().getText().toString();
+        String confpasstext = confpass.getEditText().getText().toString();
         String phoneNo = getIntent().getStringExtra("phoneNoT");
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

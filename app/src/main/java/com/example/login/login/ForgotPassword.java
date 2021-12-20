@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.login.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,14 +26,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.regex.Pattern;
 
 public class ForgotPassword extends AppCompatActivity {
-    EditText phoneText;
+    TextInputLayout phoneText;
     Button submit;
     FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-        phoneText = (EditText) findViewById(R.id.pressemail);
+        phoneText = (TextInputLayout) findViewById(R.id.pressemail);
         submit = (Button) findViewById(R.id.button3);
         auth = FirebaseAuth.getInstance();
         submit.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +45,7 @@ public class ForgotPassword extends AppCompatActivity {
     }
 
     private void verifyPhoneNumber() {
-        String phone = phoneText.getText().toString().trim();
+        String phone = phoneText.getEditText().getText().toString().trim();
         if(phone.isEmpty()){
             phoneText.setError("Email is required");
             phoneText.requestFocus();

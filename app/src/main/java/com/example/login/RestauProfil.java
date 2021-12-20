@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.view.LayoutInflater;
 
 import com.bumptech.glide.Glide;
+import com.example.login.navbar.MapActivity;
 import com.example.login.navbar.RestaurantAdapter;
 import com.example.login.navbar.RestaurantModel;
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +33,7 @@ public class RestauProfil extends AppCompatActivity implements MenuInterface {
     public ArrayList<PlatModel> plats;
     DatabaseReference database;
     String IdRestau;
+    ImageView localisation;
 
 
     @Override
@@ -45,6 +47,14 @@ public class RestauProfil extends AppCompatActivity implements MenuInterface {
         textView2 = findViewById(R.id.ratingRestaurant);
         textView3 = findViewById(R.id.localisationRestaurant);
         ImageView logoRestau = findViewById(R.id.imageRestaurant);
+        localisation = findViewById(R.id.loc);
+        localisation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RestauProfil.this, MapActivity.class);
+                startActivity(intent);
+            }
+        });
 
         int RestauId = getIntent().getIntExtra("restaurantId", 666);
         IdRestau = String.valueOf(RestauId);
