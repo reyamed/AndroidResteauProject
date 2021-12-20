@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.login.GlobaleVar;
 import com.example.login.R;
+import com.example.login.SplashScreen;
 import com.example.login.navbar.hostNav;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -120,6 +121,7 @@ protected void onStart() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ForgotPassword.class);
                 startActivity(intent);
+                Animatoo.animateCard(MainActivity.this);
             }
         });
         signupbtn.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +130,7 @@ protected void onStart() {
 
                 Intent intent = new Intent(MainActivity.this, SignUp.class);
                 startActivity(intent);
+                Animatoo.animateCard(MainActivity.this);
             }
         });
         google.setOnClickListener(new View.OnClickListener() {
