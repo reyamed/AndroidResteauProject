@@ -4,25 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.chaos.view.PinView;
 import com.example.login.R;
-import com.example.login.navbar.HomePageA;
-import com.example.login.navbar.hostNav;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,11 +25,13 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class ConfirmEmail extends AppCompatActivity {
-    Button verify;
-    PinView phoneNoEntered;
+public class verifyForgotPass extends AppCompatActivity {
+
+    MaterialButton verify;
+    EditText phoneNoEntered;
     String verificationCodeBySystem;
     FirebaseAuth firebaseAuth ;
+    String phoneNo;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
     @Override
@@ -44,10 +39,10 @@ public class ConfirmEmail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         firebaseAuth= FirebaseAuth.getInstance();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_confirm_email);
-        phoneNoEntered = findViewById(R.id.code);
-        verify = (Button) findViewById(R.id.conff);
-        String phoneNo = getIntent().getStringExtra("phoneNo");
+        setContentView(R.layout.activity_verify_forgot_pass);
+        phoneNoEntered = findViewById(R.id.code1);
+        verify = (MaterialButton) findViewById(R.id.conff1);
+        phoneNo = getIntent().getStringExtra("phoneNoP");
         //phoneNoEntered.setText("44444");
         //senVerificationCodeToUser(phoneNo);
 
@@ -67,7 +62,8 @@ public class ConfirmEmail extends AppCompatActivity {
                 }
                 verifyCode(code);
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NewPassword.class);
+                intent.putExtra("phoneNoT", phoneNo);
                 startActivity(intent);
                 finish();
             }
@@ -92,7 +88,7 @@ public class ConfirmEmail extends AppCompatActivity {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                 String code = phoneAuthCredential.getSmsCode();
-                alert("code arivée bro");
+                //alert("code arivée bro");
                 phoneNoEntered.setText(code);
                 verifyCode(code);
 
@@ -100,7 +96,7 @@ public class ConfirmEmail extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e) {
-                Toast.makeText(ConfirmEmail.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(verifyForgotPass.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -129,25 +125,26 @@ public class ConfirmEmail extends AppCompatActivity {
     private void signInTheUserByCredentials(PhoneAuthCredential credential){
 
         firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(ConfirmEmail.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(verifyForgotPass.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent intent = new Intent(ConfirmEmail.this, MainActivity.class);
+                            Intent intent = new Intent(verifyForgotPass.this, NewPassword.class);
+                            intent.putExtra("phoneNoT", phoneNo);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             finish();
 
                         }
                         else {
-                            Toast.makeText(ConfirmEmail.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(verifyForgotPass.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                         }
                     }
                 });
     }
     private void alert(String message) {
-        AlertDialog.Builder dlg = new AlertDialog.Builder(ConfirmEmail.this);
+        AlertDialog.Builder dlg = new AlertDialog.Builder(verifyForgotPass.this);
         dlg.setTitle("Message");
         dlg.setMessage(message);
         dlg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
