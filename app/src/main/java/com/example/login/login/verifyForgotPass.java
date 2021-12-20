@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.chaos.view.PinView;
 import com.example.login.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,8 +29,8 @@ import java.util.concurrent.TimeUnit;
 
 public class verifyForgotPass extends AppCompatActivity {
 
-    MaterialButton verify;
-    EditText phoneNoEntered;
+    Button verify;
+    PinView phoneNoEntered;
     String verificationCodeBySystem;
     FirebaseAuth firebaseAuth ;
     String phoneNo;
@@ -41,7 +43,7 @@ public class verifyForgotPass extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_verify_forgot_pass);
         phoneNoEntered = findViewById(R.id.code1);
-        verify = (MaterialButton) findViewById(R.id.conff1);
+        verify = (Button) findViewById(R.id.conff1);
         phoneNo = getIntent().getStringExtra("phoneNoP");
         //phoneNoEntered.setText("44444");
         //senVerificationCodeToUser(phoneNo);

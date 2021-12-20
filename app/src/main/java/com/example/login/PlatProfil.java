@@ -31,6 +31,7 @@ TextView textView1,textView2,textView3;
 
         String restauId = getIntent().getStringExtra("restauId");
         int PlatId = getIntent().getIntExtra("platId", 666);
+        //GlobaleVarPlat.idPlat = PlatId;
         String platId = String.valueOf(PlatId);
         //String restauId = String.valueOf(RestauId) ;
         Button commander ;
@@ -50,6 +51,15 @@ TextView textView1,textView2,textView3;
                 String prixPlat = snapshot.child("Prix").getValue().toString();
                 String platDescription = snapshot.child("DescriptionPlat").getValue().toString();
                 String imagePlat = snapshot.child("ImagePlat").getValue().toString();
+
+
+                //assign to global var
+
+               /* GlobaleVarPlat.varNomPlat =nomPlat;
+                GlobaleVarPlat.varDescription =platDescription;
+                GlobaleVarPlat.varPrix =prixPlat; */
+
+
                 textView1.setText(nomPlat);
                 textView2.setText(prixPlat);
                 textView3.setText(platDescription);

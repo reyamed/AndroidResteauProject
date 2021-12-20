@@ -28,7 +28,7 @@
             android:layout_gravity="center"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/profilpic"
             android:layout_gravity="center"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -43,7 +43,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp">
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/textViewnom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -55,7 +55,7 @@
                 android:fontFamily="@font/allerta"/>
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/textViewemail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -64,7 +64,7 @@
                 android:textColor="@color/black"/>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/signout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

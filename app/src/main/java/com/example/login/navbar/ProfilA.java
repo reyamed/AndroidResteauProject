@@ -34,7 +34,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.login.GlobaleVar;
+import com.example.login.MenuAdapter;
+import com.example.login.MenuInterface;
+import com.example.login.PlatModel;
 import com.example.login.R;
+import com.example.login.RestauProfil;
 import com.example.login.login.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -63,12 +67,15 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class ProfilA extends Fragment {
+public class ProfilA extends Fragment implements MenuInterface {
 
     Handler mainHandler = new Handler();
     ProgressDialog progressDialog;
 
+
     public RecyclerView recyclerViewP;
+    public MenuAdapter menuAdapter;
+    public ArrayList<PlatModel> plats;
     public RestaurantAdapter restaurantAdapter;
     public ArrayList<RestaurantModel> restaurants;
     FirebaseDatabase rootNode = FirebaseDatabase.getInstance();;
@@ -135,27 +142,39 @@ public class ProfilA extends Fragment {
         //prenom instauration
 
         //String prenom = getActivity().getIntent().getStringExtra("nom");
-        TextView prenomText = view.findViewById(R.id.textViewprenom);
+        TextView prenomText = view.findViewById(R.id.textViewemail);
         prenomText.setText(GlobaleVar.email);
 
-        recyclerViewP = view.findViewById(R.id.rvOrders);
+///////start here
+      /*  recyclerViewP = view.findViewById(R.id.rvOrders);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewP.setHasFixedSize(true);
+        plats = new ArrayList<>();
+        menuAdapter = new MenuAdapter(getContext(), plats, this);
         recyclerViewP.setLayoutManager(manager);
         restaurants = new ArrayList<>();
+        recyclerViewP.setAdapter(menuAdapter);
+        database = idReference.child("historique");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    PlatModel plat = dataSnapshot.getValue(PlatModel.class) ;
+                    plats.add(plat);
+                }
+                menuAdapter.notifyDataSetChanged();
+            };
 
-/*
-        RestaurantModel restaurant1 = new RestaurantModel(R.drawable.r1,"Frerot","Bouvlavrd m6 , 106 , Oujda" , "★★★☆☆");
-        RestaurantModel restaurant2 = new RestaurantModel(R.drawable.r2,"Bigup","Bouvlavrd lala salma , 56 , Oujda" , "★★★☆☆");
-        RestaurantModel restaurant3 = new RestaurantModel(R.drawable.r3,"EL FIl","Bouvlavrd tarik ibnou ziad , 556 , Oujda" , "★★★☆☆");
-        RestaurantModel restaurant4 = new RestaurantModel(R.drawable.r4,"Mistral","Bouvlavrd HASSAN II , 45 , Oujda" , "★★★☆☆");
 
-        restaurants.add(restaurant1);
-        restaurants.add(restaurant2);
-        restaurants.add(restaurant3);
-        restaurants.add(restaurant4);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        recyclerViewP.setAdapter(new RestaurantAdapter(getContext(), restaurants));*/
+            }
+
+
+        });*/
+
 
         idReference = reference.child(GlobaleVar.id);
         //Query checkImage = reference.orderByChild("image").equalTo(generatedFilePath);
@@ -286,6 +305,11 @@ public class ProfilA extends Fragment {
         });
         dlg.create();
         dlg.show();
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
     }
 
     /*private void fetchImage(String url) {

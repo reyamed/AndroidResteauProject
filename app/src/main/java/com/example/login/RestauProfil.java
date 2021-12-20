@@ -74,7 +74,7 @@ public class RestauProfil extends AppCompatActivity implements MenuInterface {
         recyclerViewPlats = findViewById(R.id.rvPlats);
         database = FirebaseDatabase.getInstance().getReference("Restaurants").child(IdRestau).child("Menu");
         recyclerViewPlats.setHasFixedSize(true);
-        recyclerViewPlats.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerViewPlats.setLayoutManager(new LinearLayoutManager(RestauProfil.this));
 
         plats = new ArrayList<>();
         menuAdapter = new MenuAdapter(RestauProfil.this, plats, this);
