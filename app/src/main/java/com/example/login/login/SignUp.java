@@ -67,7 +67,7 @@ public class SignUp extends AppCompatActivity {
                         Intent intent = new Intent(SignUp.this, ConfirmEmail.class);
                         intent.putExtra("phoneNo", telephoneV);
                         startActivity(intent);
-                        Animatoo.animateCard(SignUp.this);
+                        //Animatoo.animateCard(SignUp.this);
 
 
                         //Intent intent1 = new Intent(SignUp.this, ConfirmEmail.class);

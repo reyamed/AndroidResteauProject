@@ -67,7 +67,7 @@ public class verifyForgotPass extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), NewPassword.class);
                 intent.putExtra("phoneNoT", phoneNo);
                 startActivity(intent);
-                Animatoo.animateCard(verifyForgotPass.this);
+                //Animatoo.animateCard(verifyForgotPass.this);
                 finish();
             }
         });

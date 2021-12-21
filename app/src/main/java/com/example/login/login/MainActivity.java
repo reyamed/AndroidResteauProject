@@ -89,7 +89,7 @@ protected void onStart() {
         Button loginbtn = (Button) findViewById(R.id.loginbtn);
         Button signupbtn = (Button) findViewById(R.id.signupbtn);
         ImageView google = (ImageView) findViewById(R.id.google);
-        ImageView fb = (ImageView) findViewById(R.id.fb);
+        //ImageView fb = (ImageView) findViewById(R.id.fb);
 
         validateUsername();
         validatePassword();
@@ -121,7 +121,7 @@ protected void onStart() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ForgotPassword.class);
                 startActivity(intent);
-                Animatoo.animateCard(MainActivity.this);
+                //Animatoo.animateCard(MainActivity.this);
             }
         });
         signupbtn.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +130,7 @@ protected void onStart() {
 
                 Intent intent = new Intent(MainActivity.this, SignUp.class);
                 startActivity(intent);
-                Animatoo.animateCard(MainActivity.this);
+                //Animatoo.animateCard(MainActivity.this);
             }
         });
         google.setOnClickListener(new View.OnClickListener() {
@@ -145,14 +145,14 @@ protected void onStart() {
             }
         });
 
-        fb.setOnClickListener(new View.OnClickListener() {
+      /*  fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this, FbSignUp.class);
                 startActivity(intent);
             }
-        });
+        }); */
     }
 
 

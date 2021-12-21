@@ -83,7 +83,7 @@ dependencies {
     // Rouded image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //Animation
-    implementation 'com.github.mohammadatif:Animatoo:master'
+    //implementation 'com.github.mohammadatif:Animatoo:master'
 
 }
 apply plugin: 'com.google.gms.google-services'

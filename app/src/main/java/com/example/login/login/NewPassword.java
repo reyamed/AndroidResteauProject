@@ -26,12 +26,13 @@ public class NewPassword extends AppCompatActivity {
         submit = (Button) findViewById(R.id.sendpass);
         password = (TextInputLayout) findViewById(R.id.confirmpass);
         confpass = (TextInputLayout) findViewById(R.id.confirmnewpass);
-        String passtext = password.getEditText().getText().toString();
-        String confpasstext = confpass.getEditText().getText().toString();
+
         String phoneNo = getIntent().getStringExtra("phoneNoT");
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String passtext = password.getEditText().getText().toString();
+                String confpasstext = confpass.getEditText().getText().toString();
                 if(!passtext.equals(confpasstext)){
                     Context context = getApplicationContext();
 
