@@ -37,6 +37,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
                     android:text="RestauName"
+                     android:textColor="#00008B"
                      android:layout_marginLeft="10dp"/>
 
                 <TextView
@@ -44,8 +45,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:textSize="18dp"
-                    android:text="★★★☆☆"/>
+                    android:textSize="20dp"
+                    android:text="★★★☆☆"
+                    android:textColor="	#ffff00"/>
 
 
             </LinearLayout>
@@ -58,14 +60,15 @@
                 android:id="@+id/localisationRestaurant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:textSize="20dp"
+                android:textColor="#00008B"
                 android:text="Localisation BLA BLA BLA"/>
 
             <ImageView
                 android:layout_marginTop="10dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_person"
+                android:src="@drawable/ic_map"
                 android:id="@+id/loc"/>
         </LinearLayout>
 
@@ -79,6 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Menu  : "
+        android:fontFamily="@font/allerta"
+        android:textColor="#00008B"
         android:textSize="25dp"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="5dp"/>

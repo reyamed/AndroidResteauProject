@@ -67,20 +67,21 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class ProfilA extends Fragment implements MenuInterface {
+public class ProfilA extends Fragment implements HistoriqueInterface {
 
     Handler mainHandler = new Handler();
     ProgressDialog progressDialog;
 
 
-    public RecyclerView recyclerViewP;
-    public MenuAdapter menuAdapter;
-    public ArrayList<PlatModel> plats;
-    public RestaurantAdapter restaurantAdapter;
-    public ArrayList<RestaurantModel> restaurants;
+    public RecyclerView HistoriqueRV;
+    public HistoriqueAdapter historiqueAdapter;
+    public ArrayList<HistoriqueItem> historique;
+    //public RestaurantAdapter restaurantAdapter;
+    //public ArrayList<RestaurantModel> restaurants;
     FirebaseDatabase rootNode = FirebaseDatabase.getInstance();;
-    DatabaseReference reference = rootNode.getReference("Utilisateurs");;
-    DatabaseReference idReference = reference.child(GlobaleVar.id);;
+    DatabaseReference reference = rootNode.getReference("Utilisateurs");
+    DatabaseReference idReference = reference.child(GlobaleVar.id);
+
     DatabaseReference picReference;
 
     ImageView profilPic;
@@ -145,6 +146,10 @@ public class ProfilA extends Fragment implements MenuInterface {
         TextView prenomText = view.findViewById(R.id.textViewemail);
         prenomText.setText(GlobaleVar.email);
 
+
+
+
+
 ///////start here
       /*  recyclerViewP = view.findViewById(R.id.rvOrders);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
@@ -174,6 +179,36 @@ public class ProfilA extends Fragment implements MenuInterface {
 
 
         });*/
+
+
+
+        //RecyclerView Historique
+
+       /* HistoriqueRV=view.findViewById(R.id.rvOrders);
+
+        database= FirebaseDatabase.getInstance().getReference("Utilisateurs").child(GlobaleVar.id).child("historique").child(GlobaleVar.idPP);
+        HistoriqueRV.setHasFixedSize(true);
+        HistoriqueRV.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        historique = new ArrayList<>();
+        historiqueAdapter = new HistoriqueAdapter(getContext(), historique, this);
+        HistoriqueRV.setAdapter(historiqueAdapter);
+
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    HistoriqueItem historiqueItem = dataSnapshot.getValue(HistoriqueItem.class);
+                    historique.add(historiqueItem);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        }); */
 
 
         idReference = reference.child(GlobaleVar.id);

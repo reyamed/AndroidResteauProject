@@ -10,11 +10,6 @@
         android:label="fragment_home_page_a"
         tools:layout="@layout/fragment_home_page_a" />
     <fragment
-        android:id="@+id/mapA"
-        android:name="com.example.login.navbar.MapA"
-        android:label="fragment_map_a"
-        tools:layout="@layout/fragment_map_a" />
-    <fragment
         android:id="@+id/reachercheRes"
         android:name="com.example.login.navbar.ReachercheRes"
         android:label="fragment_reacherche_res"

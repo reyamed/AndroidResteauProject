@@ -1,16 +1,13 @@
-package com.example.login;
+package com.example.login.navbar;
 
-import java.util.Date;
-
-public class PlatHelperClass {
-    String varNomPlat, varPrix;
+public class HistoriqueItem {
+    String varNomPlat,varPrix;
     String date;
 
-
-    public PlatHelperClass() {
+    public HistoriqueItem() {
     }
 
-    public PlatHelperClass(String varNomPlat, String varPrix, String date) {
+    public HistoriqueItem(String varNomPlat,  String varPrix, String date) {
         this.varNomPlat = varNomPlat;
         this.varPrix = varPrix;
         this.date = date;

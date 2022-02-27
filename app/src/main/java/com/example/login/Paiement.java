@@ -44,6 +44,7 @@ TextView commande ;
         confirmerBtn = findViewById(R.id.confirmerBtn);
 
         String cmdID = getIntent().getStringExtra("plat_name") ;
+        GlobaleVar.idPP = cmdID;
         String idRestau = getIntent().getStringExtra("restaurant_id");
         //commande.setText(cmdID);
         //.child(idRestau)
@@ -75,7 +76,7 @@ TextView commande ;
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                            PlatHelperClass platHelperClass = new PlatHelperClass(nomPlat, prixPlat, platDescription,  dtf.format(now));
+                            PlatHelperClass platHelperClass = new PlatHelperClass(nomPlat, prixPlat, dtf.format(now));
                             //picReference = idReference.child("image");
                             idReference.child("historique").child(cmdID).setValue(platHelperClass);
 

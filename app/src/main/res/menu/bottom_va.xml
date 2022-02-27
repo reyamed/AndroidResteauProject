@@ -9,10 +9,7 @@
         android:id="@+id/reachercheRes"
         android:title="restau"
         android:icon="@drawable/ic_search"/>
-    <item
-        android:id="@+id/mapA"
-        android:title="map2"
-        android:icon="@drawable/ic_map"/>
+
     <item
         android:id="@+id/profilA"
         android:title="client"

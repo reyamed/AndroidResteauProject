@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -49,13 +50,13 @@ public class MapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        //btnroad = findViewById(R.id.road);
-      /*  btnroad.setOnClickListener(new View.OnClickListener() {
+        btnroad = findViewById(R.id.road);
+        btnroad.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View v) {
                                                getRoad();
                                        }
-        }); */
+        });
       /*  zoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
